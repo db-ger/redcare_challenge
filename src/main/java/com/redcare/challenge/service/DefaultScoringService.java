@@ -15,13 +15,15 @@ import java.time.temporal.ChronoUnit;
 @Primary
 public class DefaultScoringService implements ScoringService {
 
+    private static final int RECENT_DAYS_THRESHOLD = 30;
+
     @Override
-    public int calculateScore(int stars, int forks, Instant updatedAt) {
+    public double calculateScore(int stars, int forks, Instant updatedAt) {
         int score = stars + forks * 2;
 
         long daysOld = ChronoUnit.DAYS.between(updatedAt, Instant.now());
 
-        if (daysOld <= 30) {
+        if (daysOld <= RECENT_DAYS_THRESHOLD) {
             score += 10;
         }
 

@@ -10,6 +10,9 @@ import org.springframework.web.client.RestClient;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Basic client for handling the requests for GitHub
+ */
 @Component
 public class GithubClient {
 
@@ -23,7 +26,7 @@ public class GithubClient {
 
     public SearchResponse searchRepositories(String language, LocalDate createdAfter, int limit) {
         int safeLimit = Math.min(limit, properties.maxPageSize());
-        String query = "language:%s created:>=%s".formatted(language, createdAfter);
+        String query = "language:%s created:>=%s".formatted(language.trim(), createdAfter);
 
         SearchResponse response = githubRestClient.get()
                 .uri(uriBuilder -> uriBuilder

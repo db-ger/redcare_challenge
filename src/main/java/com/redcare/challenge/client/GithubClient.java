@@ -24,7 +24,6 @@ public class GithubClient {
         this.properties = properties;
     }
 
-
     public SearchResponse searchRepositories(String language, LocalDate createdAfter, int limit) {
         int safeLimit = Math.min(limit, properties.maxPageSize());
         String query = "language:%s created:>=%s".formatted(language.trim(), createdAfter);

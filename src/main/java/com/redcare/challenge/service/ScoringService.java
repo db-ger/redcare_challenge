@@ -14,5 +14,5 @@ public interface ScoringService {
      * @param updatedAt timestamp of the last update
      * @return calculated popularity score
      */
-    int calculateScore(int stars, int forks, Instant updatedAt);
+    double calculateScore(int stars, int forks, Instant updatedAt);
 }

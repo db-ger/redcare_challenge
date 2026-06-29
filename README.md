@@ -20,7 +20,10 @@ http://localhost:8080/swagger-ui/index.html
 
 * Currently only the first page (max. 100 repositories) is fetched. This can lead to inaccurate rankings because GitHub sorts by stars, while the final score also considers forks and recent activity.
 * Support pagination to evaluate more repositories.
+* Fetch paginated GitHub results in parallel to improve scalability.
+* Improve the scoring algorithm
 * Make the scoring weights configurable.
 * Add caching to reduce GitHub API requests.
 * Improve handling of GitHub rate limits and retries.
+* implementation of an better scoring algorithm 
 * More Tests..
